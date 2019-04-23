@@ -46,8 +46,8 @@ class _audiozeenState extends State<audiozeen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Music Player",
-            style: TextStyle(fontSize: 20, color: Colors.purpleAccent)),
+        title: Text("AUDIO ZEN",
+            style: TextStyle(fontSize: 25, color: Colors.greenAccent)),
         centerTitle: true,
       ),
       body: Center(
@@ -56,7 +56,7 @@ class _audiozeenState extends State<audiozeen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(musicName, style: TextStyle(fontSize: 30)),
+                Text(musicName, style: TextStyle(fontSize: 35)),
                 Padding(
                   padding: const EdgeInsets.only(top: 15, bottom: 15),
                   child: ClipRRect(
@@ -67,7 +67,7 @@ class _audiozeenState extends State<audiozeen> {
                   child: Column(
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.only(top: 15),
+                        padding: const EdgeInsets.only(top: 18),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: audioControls(),
@@ -95,7 +95,7 @@ class _audiozeenState extends State<audiozeen> {
   Widget CreateIconButton(IconData icon, Color color, VoidCallback onPressed) {
     return IconButton(
       icon: Icon(icon),
-      iconSize: 48,
+      iconSize: 50,
       color: color,
       onPressed: onPressed,
     );
@@ -103,21 +103,21 @@ class _audiozeenState extends State<audiozeen> {
 
   List<Widget> audioControls() {
     return <Widget>[
-      CreateIconButton(Icons.play_arrow, Colors.green, () {
+      CreateIconButton(Icons.play_arrow, Colors.blue, () {
         audioCache.play(audioName);
       }),
-      CreateIconButton(Icons.stop, Colors.grey, () {
+      CreateIconButton(Icons.stop, Colors.greenAccent, () {
         audioPlayer.stop();
       }),
       CreateIconButton(Icons.volume_up, Colors.green, () {
         if (volume < 1) {
-          volume += 0.1;
+          volume += 0.9;
           audioPlayer.setVolume(volume);
         }
       }),
       CreateIconButton(Icons.volume_down, Colors.blueAccent, () {
         if (volume > 0) {
-          volume -= 0.1;
+          volume -= 0.2;
           audioPlayer.setVolume(volume);
         }
       }),
